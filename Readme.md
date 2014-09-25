@@ -51,20 +51,17 @@ Add this to your `test/mocha.opts`:
 
 You can use these options together if you like.
 
-### Showing node_modules
+#### Brief 
 
-By default, mocha-clean removes anything under `node_modules`.
-To disable this behavior, add this to `test/mocha.opts`:
+Displays [brief format] error messages, similar to C++, Ruby, and so on.
+Add this to `test/mocha.opts`:
 
 ```js
---require mocha-clean/show_node_modules
+--require mocha-clean/brief
 ```
 
-### Showing filenames first
-
-JavaScript has its stack traces in the format `at functionName (file)`, which 
-can be hard to read for filenames. You can configure mocha-clean to display the 
-filenames first.
+This displays the filenames first (`file:n:n: function`), which is reformatted from
+the JavaScript-style `at function (file:n:n)`.
 
 ```
 3) error:
@@ -73,15 +70,19 @@ filenames first.
     test/fail.js:9:9: Context.<anonymous>
 ```
 
-Add this to `test/mocha.opts`:
+#### Showing node_modules
+
+By default, mocha-clean removes anything under `node_modules`.
+To disable this behavior, add this to `test/mocha.opts`:
 
 ```js
---require mocha-clean/filenames_first
+--require mocha-clean/show_node_modules
 ```
 
 ## Thanks
 
 [mocha]: http://visionmedia.github.io/mocha
+[brief format]: http://gcc.gnu.org/onlinedocs/gnat_ugn_unw/Output-and-Error-Message-Control.html
 
 **mocha-clean** © 2014+, Rico Sta. Cruz. Released under the [MIT] License.<br>
 Authored and maintained by Rico Sta. Cruz with help from contributors ([list][contributors]).
