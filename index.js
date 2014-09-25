@@ -100,7 +100,11 @@ function isNodeInternal (line) {
  */
 
 function reorderFilename (line) {
-  var m = line.match(/^(\s*)at (.*?) \((.*?)\)$/);
+  var m;
+  m = line.match(/^(\s*)at (.*?) \(native\)$/);
+  if (m) return "" + m[1] + "[native]: " + m[2];
+
+  m = line.match(/^(\s*)at (.*?) \((.*?)\)$/);
   if (m) return "" + m[1] + m[3] + ": " + m[2];
 
   m = line.match(/^(\s*)at (.*?)$/);

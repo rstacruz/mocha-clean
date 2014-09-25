@@ -51,6 +51,11 @@ describe('reorder filenames', function () {
     expect(reorder('    at file.js:1:2'))
       .eql('    file.js:1:2:');
   });
+
+  it("treats native functions differently", function () {
+    expect(reorder('    at Array.forEach (native)'))
+      .eql('    [native]: Array.forEach');
+  });
 });
 
 function poop() {
