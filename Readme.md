@@ -2,9 +2,11 @@
 
 Cleans up [mocha] test stack traces.
 
-![Loading screenshot...](https://raw.githubusercontent.com/rstacruz/mocha-clean/gh-pages/screenshot.png)
+![Loading screenshot...](https://raw.githubusercontent.com/rstacruz/mocha-clean/gh-pages/comparison.png)
 
-## What for
+<br>
+
+## Purpose
 
 Mocha stack traces are riddled with frames that you don't want to see, like code from modules and Mocha internals.
 
