@@ -26,6 +26,7 @@ Into this:
 ```
   1) Test:
      ReferenceError: someKey is not defined
+      at myFunction (test/test:7:1)
       at test/test.js:24:5
 ```
 

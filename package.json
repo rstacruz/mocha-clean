@@ -18,5 +18,9 @@
   "bugs": {
     "url": "https://github.com/rstacruz/mocha-clean/issues"
   },
-  "homepage": "https://github.com/rstacruz/mocha-clean"
+  "homepage": "https://github.com/rstacruz/mocha-clean",
+  "devDependencies": {
+    "chai": "^1.9.1",
+    "mocha": "^1.21.4"
+  }
 }
