@@ -2,7 +2,9 @@
 
 Cleans up [mocha] test stack traces.
 
-Ever find it hard to read this? Me too.
+## What for
+
+Mocha stack traces are riddled with frames that you don't want to see, like code from modules and Mocha internals.
 
 ```
   1) Test:
@@ -31,15 +33,16 @@ This is better:
 It strips away mocha internals, node_modules, absolute paths (based on cwd), and 
 other unneccessary cruft.
 
+<br>
+
 ## Usage
 
+[![npm version](http://img.shields.io/npm/v/mocha-clean.svg?style=flat)](https://npmjs.org/package/mocha-clean "View this project on npm")
 Available via npm.
 
 ```sh
 $ npm i --save-dev mocha-clean
 ```
-
-[![npm version](http://img.shields.io/npm/v/mocha-clean.svg?style=flat)](https://npmjs.org/package/mocha-clean "View this project on npm")
 
 Add this to your `test/mocha.opts`:
 
@@ -47,14 +50,12 @@ Add this to your `test/mocha.opts`:
 --require mocha-clean
 ```
 
-## Customization
+<br>
 
-You can use these options together if you like.
+## Brief mode
 
-#### Brief 
-
-Displays [brief format] error messages, similar to C++, Ruby, and so on.
-Add this to `test/mocha.opts`:
+To display [brief format] error messages similar to C++, Ruby and so on,
+add this to `test/mocha.opts`:
 
 ```js
 --require mocha-clean/brief
@@ -64,13 +65,15 @@ This displays the filenames first (`file:n:n: function`), which is reformatted f
 the JavaScript-style `at function (file:n:n)`.
 
 ```
-3) error:
+1) error:
    ReferenceError: xyz is not defined
     test/fail.js:12:4: myfunction
     test/fail.js:9:9: Context.<anonymous>
 ```
 
-#### Showing node_modules
+<br>
+
+## Showing node_modules
 
 By default, mocha-clean removes anything under `node_modules`.
 To disable this behavior, add this to `test/mocha.opts`:
@@ -78,6 +81,8 @@ To disable this behavior, add this to `test/mocha.opts`:
 ```js
 --require mocha-clean/show_node_modules
 ```
+
+<br>
 
 ## Thanks
 
