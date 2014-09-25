@@ -4,7 +4,8 @@ Cleans up [mocha] test stack traces.
 
 ![Loading screenshot...](https://raw.githubusercontent.com/rstacruz/mocha-clean/gh-pages/comparison.png)
 
-<br>
+[![Status](http://img.shields.io/travis/rstacruz/mocha-clean/master.svg?style=flat)](https://travis-ci.org/rstacruz/mocha-clean "See test builds")
+
 
 ## Purpose
 
@@ -32,7 +33,7 @@ This is better:
 It strips away mocha internals, node_modules, absolute paths (based on cwd), and 
 other unneccessary cruft.
 
-[![Status](http://img.shields.io/travis/rstacruz/mocha-clean/master.svg?style=flat)](https://travis-ci.org/rstacruz/mocha-clean "See test builds")
+<br>
 
 ## Usage
 
