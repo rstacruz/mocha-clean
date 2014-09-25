@@ -1,10 +1,13 @@
-
 /* run `mocha example/async.js` to try it out */
-
-require('../index')();
-
-it('async fail', function (next) {
-  setTimeout(function () {
+describe('fail', function () {
+  it('sync fail', function () {
     y();
-  }, 1);
+  });
+
+  it('async fail', function (done) {
+    setTimeout(function () {
+      asyncFailure();
+      done();
+    }, 1);
+  });
 });
