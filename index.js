@@ -80,6 +80,7 @@ Clean.cleanStackTraces = function cleanStackTraces (fn) {
     try {
       fn();
     } catch (e) {
+      if (!e.stack) throw e;
       var cwd = process.cwd() + slash;
       var stack = e.stack.split('\n');
 
