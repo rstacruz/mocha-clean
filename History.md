@@ -1,3 +1,7 @@
+## v0.2.0 - September 25, 2014
+
+* Rename `mocha-clean/filenames_first` to `mocha-clean/brief`.
+
 ## v0.1.3 - September 25, 2014
 
 * Display native functions nicely in `filenames_first` mode.
