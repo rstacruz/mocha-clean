@@ -49,10 +49,12 @@ Add this to your `test/mocha.opts`:
 
 ## Customization
 
+You can use these options together if you like.
+
 ### Showing node_modules
 
 By default, mocha-clean removes anything under `node_modules`.
-To disable this behavior, use this:
+To disable this behavior, add this to `test/mocha.opts`:
 
 ```js
 --require mocha-clean/show_node_modules
@@ -71,7 +73,7 @@ filenames first.
     test/fail.js:9:9: Context.<anonymous>
 ```
 
-Use:
+Add this to `test/mocha.opts`:
 
 ```js
 --require mocha-clean/filenames_first
