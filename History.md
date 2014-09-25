@@ -1,3 +1,7 @@
+## v0.1.2 - September 25, 2014
+
+* Implement the `filenames_first` option.
+
 ## v0.1.1 - September 25, 2014
 
 * Clean up internal node module.js errors.
