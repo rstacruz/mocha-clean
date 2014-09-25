@@ -31,7 +31,8 @@ function __mocha_internal__cleanError (e) {
       return list;
 
     // node internals
-    if (~line.indexOf('(timers.js:'))
+    if ((~line.indexOf('(timers.js:')) ||
+        (~line.indexOf('(module.js:')))
       return list;
 
     // supress ourselves
