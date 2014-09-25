@@ -83,6 +83,18 @@ To disable this behavior, add this to `test/mocha.opts`:
 
 <br>
 
+## Related discussions
+
+There was talk in 2012 to bring this feature to mocha itself (see [mocha#545]),
+which never came to a resolve.
+
+mocha-clean has been tested with mocha 1.21.x and will likely work for the 
+entire mocha 1.x series.
+
+[mocha#545]: https://github.com/visionmedia/mocha/issues/545
+
+<br>
+
 ## Thanks
 
 [mocha]: http://visionmedia.github.io/mocha
