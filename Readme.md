@@ -37,11 +37,15 @@ functions. This decorator will catch any exception thrown and scrub out
 
 ## Usage
 
+Available via npm.
+
 ```sh
-npm i --save-dev mocha-clean
+$ npm i --save-dev mocha-clean
 ```
 
-Add this to the beginning of your tests:
+[![npm version](http://img.shields.io/npm/v/mocha-clean.svg?style=flat)](https://npmjs.org/package/mocha-clean "View this project on npm")
+
+Add this to the beginning of one of your test files:
 
 ```js
 require('mocha-clean')();
@@ -56,6 +60,15 @@ require('mocha-clean')({ showNodeModules: true });
 
 ## Thanks
 
-MIT Licensed
-
 [mocha]: http://visionmedia.github.io/mocha
+
+**mocha-clean** © 2014+, Rico Sta. Cruz. Released under the [MIT] License.<br>
+Authored and maintained by Rico Sta. Cruz with help from contributors ([list][contributors]).
+
+> [ricostacruz.com](http://ricostacruz.com) &nbsp;&middot;&nbsp;
+> GitHub [@rstacruz](https://github.com/rstacruz) &nbsp;&middot;&nbsp;
+> Twitter [@rstacruz](https://twitter.com/rstacruz)
+
+[MIT]: http://mit-license.org/
+[contributors]: http://github.com/rstacruz/mocha-clean/contributors
+
