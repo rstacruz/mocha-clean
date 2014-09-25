@@ -32,7 +32,7 @@ This is better:
 It strips away mocha internals, node_modules, absolute paths (based on cwd), and 
 other unneccessary cruft.
 
-<br>
+[![Status](http://img.shields.io/travis/rstacruz/mocha-clean/master.svg?style=flat)](https://travis-ci.org/rstacruz/mocha-clean "See test builds")
 
 ## Usage
 
