@@ -33,6 +33,10 @@ Into this:
 It strips away mocha internals, node_modules, absolute paths (based on cwd), and 
 other unneccessary cruft.
 
+How? It monkey-patches `it()` (and all its cousins) to decorate the test 
+functions. This decorator will catch any exception thrown and scrub out 
+`err.stack`.
+
 ## Usage
 
 ```js
