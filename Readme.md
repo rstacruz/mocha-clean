@@ -49,11 +49,32 @@ Add this to your `test/mocha.opts`:
 
 ## Customization
 
+### Showing node_modules
+
 By default, mocha-clean removes anything under `node_modules`.
 To disable this behavior, use this:
 
 ```js
 --require mocha-clean/show_node_modules
+```
+
+### Showing filenames first
+
+JavaScript has its stack traces in the format `at functionName (file)`, which 
+can be hard to read for filenames. You can configure mocha-clean to display the 
+filenames first.
+
+```
+3) error:
+   ReferenceError: xyz is not defined
+    test/fail.js:12:4: myfunction
+    test/fail.js:9:9: Context.<anonymous>
+```
+
+Use:
+
+```js
+--require mocha-clean/filenames_first
 ```
 
 ## Thanks
