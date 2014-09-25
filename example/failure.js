@@ -1,4 +1,4 @@
-/* run `mocha example` to try it out */
+/* run `mocha example/failure.js` to try it out */
 
 require('../index')();
 
