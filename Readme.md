@@ -31,13 +31,6 @@ This is better:
 It strips away mocha internals, node_modules, absolute paths (based on cwd), and 
 other unneccessary cruft.
 
-How? It monkey-patches `it()` (and all its cousins) to decorate the test 
-functions. This decorator will catch any exception thrown and scrub out 
-`err.stack`.
-
-**Limitation**: doesn't work on async functions, unless you can help me find a 
-better solution in applying decorators.
-
 ## Usage
 
 Available via npm.
@@ -48,17 +41,19 @@ $ npm i --save-dev mocha-clean
 
 [![npm version](http://img.shields.io/npm/v/mocha-clean.svg?style=flat)](https://npmjs.org/package/mocha-clean "View this project on npm")
 
-Add this to the beginning of one of your test files:
+Add this to your `test/mocha.opts`:
 
 ```js
-require('mocha-clean')();
+--require mocha-clean
 ```
 
-By default, this also removes anything under `node_modules`.
+## Customization
+
+By default, mocha-clean removes anything under `node_modules`.
 To disable this behavior, use this:
 
 ```js
-require('mocha-clean')({ showNodeModules: true });
+--require mocha-clean/show_node_modules
 ```
 
 ## Thanks
