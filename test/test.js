@@ -1,16 +1,14 @@
-require('../index')();
-
 var expect = require('chai').expect;
 var err;
 
-var cleanStackTraces = require('../index').cleanStackTraces;
+var cleanError = require('../index').cleanError;
 
 describe('clean', function () {
   beforeEach(function () {
     try {
-      cleanStackTraces(function () { poop(); })();
+      (function () { poop(); })();
     } catch (e) {
-      err = e;
+      err = cleanError(e);
     }
   });
 

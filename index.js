@@ -46,3 +46,9 @@ function __mocha_internal__cleanError (e) {
   e.stack = stack.join('\n');
   return e;
 }
+
+/*
+ * export for tests
+ */
+
+exports.cleanError = __mocha_internal__cleanError;
