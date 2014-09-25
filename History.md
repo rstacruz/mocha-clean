@@ -1,3 +1,7 @@
+## v0.1.3 - September 25, 2014
+
+* Display native functions nicely in `filenames_first` mode.
+
 ## v0.1.2 - September 25, 2014
 
 * Implement the `filenames_first` option.
