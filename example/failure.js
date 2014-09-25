@@ -1,12 +1,10 @@
-/* run `mocha example/failure.js` to try it out */
-
-require('../index')();
-
-it('this throws an error', function () {
-  y();
+describe('simple failure', function () {
+  it('this throws an error', function () {
+    heeelp();
+  });
 });
 
-function y() { somebody(); }
+function heeelp() { somebody(); }
 function i() { help(); }
 function help() { h(); }
 function need() { i(); }

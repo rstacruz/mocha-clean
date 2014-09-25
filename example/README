@@ -1,0 +1,7 @@
+to run examples:
+
+    mocha example
+
+to run examples *with* mocha-clean:
+
+    mocha example -r .
