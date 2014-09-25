@@ -2,6 +2,7 @@ var expect = require('chai').expect;
 var err;
 
 var cleanError = require('../index').cleanError;
+var reorder = require('../index').reorderFilename;
 
 describe('clean', function () {
   beforeEach(function () {
@@ -32,6 +33,23 @@ describe('clean', function () {
 
   it('has this file in it without a path', function () {
     expect(err.stack).include('(test/test.js');
+  });
+});
+
+describe('reorder filenames', function () {
+  it("works", function () {
+    expect(reorder('    at foobar (file.js:1:2)'))
+      .eql('    file.js:1:2: foobar');
+  });
+
+  it("knows indents", function () {
+    expect(reorder('        at foobar (file.js:1:2)'))
+      .eql('        file.js:1:2: foobar');
+  });
+
+  it("works without functions", function () {
+    expect(reorder('    at file.js:1:2'))
+      .eql('    file.js:1:2:');
   });
 });
 

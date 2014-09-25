@@ -1,4 +1,6 @@
 var slash = require('path').sep || '/';
+var cwd = process.cwd() + slash;
+
 var Mocha = require('mocha');
 var Runner = Mocha.Runner;
 
@@ -18,7 +20,6 @@ Runner.prototype.fail = function (test, err) {
 
 function __mocha_internal__cleanError (e) {
   if (!e.stack) return e;
-  var cwd = process.cwd() + slash;
   var stack = e.stack.split('\n');
 
   stack = stack.reduce(function (list, line) {
@@ -31,6 +32,12 @@ function __mocha_internal__cleanError (e) {
 
     // Clean up cwd.
     line = line.replace(cwd, '');
+
+    // experimental: show errors in a format
+    // like "example/foo.js:10:19: at functionName"
+    if (process.env.FILENAMES_FIRST)
+      line = reorderFilename(line);
+
     list.push(line);
     return list;
   }, []);
@@ -83,7 +90,28 @@ function isNodeInternal (line) {
 }
 
 /*
+ * puts filenames first.
+ *
+ *     "   at foobar (example.js:2:3)"
+ *     => "example.js:2:3: foobar"
+ *
+ *     "   at example.js:2:3"
+ *     => "example.js:2:3:"
+ */
+
+function reorderFilename (line) {
+  var m = line.match(/^(\s*)at (.*?) \((.*?)\)$/);
+  if (m) return "" + m[1] + m[3] + ": " + m[2];
+
+  m = line.match(/^(\s*)at (.*?)$/);
+  if (m) return "" + m[1] + m[2] + ":";
+
+  return line;
+}
+
+/*
  * export for tests.
  */
 
 exports.cleanError = __mocha_internal__cleanError;
+exports.reorderFilename = reorderFilename;
