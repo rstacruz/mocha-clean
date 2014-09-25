@@ -35,6 +35,9 @@ How? It monkey-patches `it()` (and all its cousins) to decorate the test
 functions. This decorator will catch any exception thrown and scrub out 
 `err.stack`.
 
+**Limitation**: doesn't work on async functions, unless you can help me find a 
+better solution in applying decorators.
+
 ## Usage
 
 Available via npm.
