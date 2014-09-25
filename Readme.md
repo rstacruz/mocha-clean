@@ -1,10 +1,8 @@
 # mocha-clean
 
-Cleans up mocha tests.
+Cleans up [mocha] test stack traces.
 
-## Why
-
-It turns this:
+Ever find it hard to read this? Me too.
 
 ```
   1) Test:
@@ -21,7 +19,7 @@ It turns this:
       at processImmediate [as _immediateCallback] (timers.js:330:15)
 ```
 
-Into this:
+This is better:
 
 ```
   1) Test:
@@ -39,8 +37,13 @@ functions. This decorator will catch any exception thrown and scrub out
 
 ## Usage
 
+```sh
+npm i --save-dev mocha-clean
+```
+
+Add this to the beginning of your tests:
+
 ```js
-// add this to the beginning of your tests:
 require('mocha-clean')();
 ```
 
@@ -53,4 +56,6 @@ require('mocha-clean')({ showNodeModules: true });
 
 ## Thanks
 
-MIT
+MIT Licensed
+
+[mocha]: http://visionmedia.github.io/mocha
