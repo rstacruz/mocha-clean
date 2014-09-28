@@ -82,10 +82,12 @@ function isMochaCleanInternal (line) {
  *   at Function.Module._load (module.js:312:12)
  *   at Module.require (module.js:364:17)
  *   at require (module.js:380:17)
+ *   at process._tickCallback (node.js:415:13)
  */
 
 function isNodeInternal (line) {
   return (~line.indexOf('(timers.js:')) ||
+    (~line.indexOf('(node.js:')) ||
     (~line.indexOf('(module.js:'));
 }
 
