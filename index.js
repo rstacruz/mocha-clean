@@ -14,7 +14,7 @@ if (typeof document === 'undefined') {
 } else {
   is     = { browser: true };
   slash  = '/';
-  cwd    = null;
+  cwd    = location.href.replace(/\/[^\/]*$/, '/');
   Mocha  = this.Mocha;
   Runner = Mocha.Runner;
   env    = function () { return {}; };
