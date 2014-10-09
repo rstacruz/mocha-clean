@@ -1,8 +1,24 @@
-var slash = require('path').sep || '/';
-var cwd = process.cwd() + slash;
+var slash, cwd, Mocha, Runner, env, is;
 
-var Mocha = require('mocha');
-var Runner = Mocha.Runner;
+/*
+ * load things differently if you're in node.js or the browser.
+ */
+
+if (typeof document === 'undefined') {
+  is     = { node: true };
+  slash  = require('path').sep || '/';
+  cwd    = process.cwd() + slash;
+  Mocha  = require('mocha');
+  Runner = Mocha.Runner;
+  env    = function () { return process.env; };
+} else {
+  is     = { browser: true };
+  slash  = '/';
+  cwd    = null;
+  Mocha  = this.Mocha;
+  Runner = Mocha.Runner;
+  env    = function () { return {}; };
+}
 
 /*
  * monkey-patch Runner#fail to modify `err`.
@@ -24,10 +40,15 @@ function __mocha_internal__cleanError (e) {
 
   stack = stack.reduce(function (list, line) {
     // Strip out certain lines.
-    if (isNodeModule(line) ||
+    if (is.node && (isNodeModule(line) ||
       isMochaInternal(line) ||
       isNodeInternal(line) ||
-      isMochaCleanInternal(line))
+      isMochaCleanInternal(line)))
+      return list;
+
+    if (is.browser && (
+      isBrowserIgnored(line) ||
+      isMochaCleanInternal(line)))
       return list;
 
     // Clean up cwd.
@@ -35,7 +56,7 @@ function __mocha_internal__cleanError (e) {
 
     // experimental: show errors in a format
     // like "example/foo.js:10:19: at functionName"
-    if (process.env.FILENAMES_FIRST)
+    if (env().FILENAMES_FIRST)
       line = reorderFilename(line);
 
     list.push(line);
@@ -52,7 +73,7 @@ function __mocha_internal__cleanError (e) {
 
 function isNodeModule (line) {
   return (~line.indexOf('node_modules')) &&
-    !process.env.SHOW_NODE_MODULES;
+    !env().SHOW_NODE_MODULES;
 }
 
 /*
@@ -63,6 +84,14 @@ function isNodeModule (line) {
 
 function isMochaInternal (line) {
   return (~line.indexOf('node_modules' + slash + 'mocha'));
+}
+
+/*
+ * detect stuff ignored in the browser.
+ */
+
+function isBrowserIgnored (line) {
+  return (~line.indexOf('mocha.js'));
 }
 
 /*
@@ -119,5 +148,7 @@ function reorderFilename (line) {
  * export for tests.
  */
 
-exports.cleanError = __mocha_internal__cleanError;
-exports.reorderFilename = reorderFilename;
+if (typeof module === 'object') {
+  exports.cleanError = __mocha_internal__cleanError;
+  exports.reorderFilename = reorderFilename;
+}
