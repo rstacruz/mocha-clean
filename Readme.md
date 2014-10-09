@@ -54,14 +54,24 @@ Add this to your `test/mocha.opts`:
 
 ## Usage (browser)
 
-In the browser, use `traceIgnores` to define files to be excluded.
+Experimental browser support is available. Get the latest version here:
+
+> [](#version) `<script src="//cdn.rawgit.com/rstacruz/mocha-clean/v0.3.0/index.js"></script>`
+
+In the browser, use `mocha.traceIgnores` to define files to be excluded. Your
+setup will likely look like this (with [chai.js] in this example):
 
 ```html
-<script src="//cdn.rawgit.com/rstacruz/mocha-clean/v0.3.0/index.js">
-<script>
-mocha.traceIgnores = ['mocha.js', 'chai.js'];
-</script>
+<script src="mocha.js"></script>
+<script src="chai.js"></script>
+<script src="mocha-clean.js"></script>
+<script>mocha.setup('bdd')</script>
+<script>mocha.traceIgnores = ['mocha.js', 'chai.js']</script>
+<script src="tests.js"></script>
+<script>mocha.run()</script>
 ```
+
+[chai.js]: http://chaijs.com
 
 <br>
 

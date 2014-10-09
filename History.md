@@ -1,3 +1,7 @@
+## v0.3.0 - October  9, 2014
+
+* Experimental browser support.
+
 ## v0.2.1 - September 25, 2014
 
 * Supress node `processTick` frames.
