@@ -35,7 +35,7 @@ other unneccessary cruft.
 
 <br>
 
-## Usage
+## Usage (Node.js)
 
 [![npm version](http://img.shields.io/npm/v/mocha-clean.svg?style=flat)](https://npmjs.org/package/mocha-clean "View this project on npm")
 Available via npm.
@@ -48,6 +48,19 @@ Add this to your `test/mocha.opts`:
 
 ```js
 --require mocha-clean
+```
+
+<br>
+
+## Usage (browser)
+
+In the browser, use `traceIgnores` to define files to be excluded.
+
+```html
+<script src="//cdn.rawgit.com/rstacruz/mocha-clean/v0.3.0/index.js">
+<script>
+mocha.traceIgnores = ['mocha.js', 'chai.js'];
+</script>
 ```
 
 <br>

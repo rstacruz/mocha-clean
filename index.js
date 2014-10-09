@@ -21,6 +21,13 @@ if (typeof document === 'undefined') {
 }
 
 /*
+ * for the browser: allow the user to specify things to be ignored
+ */
+
+if (is.browser && mocha && !mocha.traceIgnores)
+  mocha.traceIgnores = ['mocha.js'];
+
+/*
  * monkey-patch Runner#fail to modify `err`.
  */
 
@@ -91,7 +98,16 @@ function isMochaInternal (line) {
  */
 
 function isBrowserIgnored (line) {
-  return (~line.indexOf('mocha.js'));
+  var ignores = mocha.traceIgnores || [];
+
+  for (var i = 0, len = ignores.length; i < len; i++) {
+    var spec = ignores[i];
+
+    if ((typeof spec === 'string' && ~line.indexOf(spec)) ||
+      (typeof spec === 'function' && spec(line)) ||
+      (spec instanceof RegExp && line.match(spec)))
+      return true;
+  }
 }
 
 /*
