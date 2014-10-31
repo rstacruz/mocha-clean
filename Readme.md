@@ -107,6 +107,17 @@ To disable this behavior, add this to `test/mocha.opts`:
 
 <br>
 
+## Showing absolute paths
+
+By default, mocha-clean removes the current working directory from the beginning
+of paths. To disable this behavior, add this to `test/mocha.opts`:
+
+```js
+--require mocha-clean/absolute_paths
+```
+
+<br>
+
 ## Related discussions
 
 There was talk in 2012 to bring this feature to mocha itself (see [mocha#545]),
