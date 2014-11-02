@@ -1,3 +1,7 @@
+## v0.3.1 - November 2, 2014
+
+* Remove ES6 generator internals. (#1)
+
 ## v0.3.0 - October  9, 2014
 
 * Experimental browser support.
