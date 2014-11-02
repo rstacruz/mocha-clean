@@ -107,7 +107,7 @@ To disable this behavior, add this to `test/mocha.opts`:
 
 <br>
 
-## Using with gulp/grunt/karma/etc
+## Using with Gulp, Grunt, Karma, et al
 
 See: **[Using with mocha loaders ▸](docs/Using_with_mocha_loaders.md)**
 

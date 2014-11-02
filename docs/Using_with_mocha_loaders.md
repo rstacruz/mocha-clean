@@ -2,6 +2,8 @@
 title: Using with mocha loaders
 ---
 
+# Using with mocha loaders
+
 There are a few modules that invoke Mocha as a dependency, such as:
 
  * [gulp-mocha](http://npmjs.org/package/gulp-mocha)
