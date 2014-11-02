@@ -131,9 +131,12 @@ function isMochaCleanInternal (line) {
  */
 
 function isNodeInternal (line) {
-  return (~line.indexOf('(timers.js:')) ||
+  return false ||
+    (~line.indexOf('(timers.js:')) ||
     (~line.indexOf('(node.js:')) ||
-    (~line.indexOf('(module.js:'));
+    (~line.indexOf('(module.js:')) ||
+    (~line.indexOf('GeneratorFunctionPrototype.next (native)')) ||
+    false;
 }
 
 /*
