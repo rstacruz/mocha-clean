@@ -1,6 +1,12 @@
 var expect = require('chai').expect;
 var err;
 
+if (process.env.COVERAGE) {
+  require('blanket')({
+    pattern: require('path').resolve('./index.js')
+  });
+}
+
 var cleanError = require('../index').cleanError;
 var reorder = require('../index').reorderFilename;
 

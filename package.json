@@ -4,7 +4,8 @@
   "description": "Cleans up mocha stack traces.",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "coverage": "env COVERAGE=1 mocha -R html-cov > coverage.html && open coverage.html"
   },
   "repository": {
     "type": "git",
@@ -20,7 +21,10 @@
   },
   "homepage": "https://github.com/rstacruz/mocha-clean",
   "devDependencies": {
+    "blanket": "^1.1.6",
     "chai": "^1.9.1",
-    "mocha": "^1.21.4"
+    "coveralls": "^2.11.2",
+    "mocha": "^1.21.4",
+    "mocha-lcov-reporter": "0.0.1"
   }
 }
