@@ -59,7 +59,8 @@ function __mocha_internal__cleanError (e) {
       return list;
 
     // Clean up cwd.
-    line = line.replace(cwd, '');
+    if (!env().SHOW_ABSOLUTE_PATHS)
+      line = line.replace(cwd, '');
 
     // experimental: show errors in a format
     // like "example/foo.js:10:19: at functionName"
