@@ -1,3 +1,7 @@
+## v0.4.0 - November 9, 2014
+
+* Add `mocha-clean/absolute_paths` option. (#4, @davidaurelio)
+
 ## v0.3.1 - November 2, 2014
 
 * Remove ES6 generator internals. (#1)
