@@ -56,7 +56,7 @@ Add this to your `test/mocha.opts`:
 
 Experimental browser support is available. Get the latest version here:
 
-> [](#version) `<script src="//cdn.rawgit.com/rstacruz/mocha-clean/v0.3.0/index.js"></script>`
+> [](#version) `<script src="//cdn.rawgit.com/rstacruz/mocha-clean/v0.4.0/index.js"></script>`
 
 In the browser, use `mocha.traceIgnores` to define files to be excluded. Your
 setup will likely look like this (with [chai.js] in this example):
