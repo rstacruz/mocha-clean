@@ -7,6 +7,7 @@ title: Using with mocha loaders
 There are a few modules that invoke Mocha as a dependency, such as:
 
  * [gulp-mocha](http://npmjs.org/package/gulp-mocha)
+ * [gulp-spawn-mocha](http://npmjs.org/package/gulp-spawn-mocha)
  * [grunt-mocha](http://npmjs.org/package/grunt-mocha)
  * [grunt-webdriver](http://npmjs.org/package/grunt-webdriver)
  * [karma-mocha](http://npmjs.org/package/karma-mocha)
@@ -15,19 +16,23 @@ Getting 3rd-party mocha addons like mocha-clean aren't always straight-forward, 
 
 ## Using mocha-clean with gulp
 
+1. Use [gulp-spawn-mocha](http://npmjs.org/package/gulp-spawn-mocha). Do not use [gulp-mocha](http://npmjs.org/package/gulp-mocha).
+
+2. Add in the `test/mocha.opts` file as originally prescribed in mocha-clean.
+
+## Using mocha-clean with grunt
+
+*NB: these instructions aren't tested thoroughly, YMMV.*
+
 1. Ensure that `mocha` and `mocha-clean` are part of your main project's package.json *devDependencies*.
 
 2. If you have a `npm-shrinkwrap.json` file, be sure to install `mocha` and `mocha-clean` via `npm install`, then re-invoke `npm shrinkwrap`. ([docs](https://www.npmjs.org/doc/cli/npm-shrinkwrap.html))
 
-3. Run `npm dedupe`. This makes `gulp-mocha` use the same top-level `mocha` package.
+3. Run `npm dedupe`. This makes `grunt-mocha` use the same top-level `mocha` package.
 
-4. Add `require('mocha-clean')` in the top-level scope of your *gulpfile.js*. This patches the top-level `mocha` package.
+4. Add `require('mocha-clean')` in the top-level scope of your *Gruntfile.js*. This patches the top-level `mocha` package.
 
-5. Use gulp-mocha as usual. mocha-clean should now work.
-
-## Using mocha-clean with grunt
-
-Same as above, but add `require('mocha-clean')` to your *Gruntfile.js*.
+5. Use grunt-mocha as usual. mocha-clean should now work.
 
 Related issue: [#3](https://github.com/rstacruz/mocha-clean/issues/3)
 
