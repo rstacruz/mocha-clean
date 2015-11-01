@@ -127,7 +127,9 @@ of paths. To disable this behavior, add this to `test/mocha.opts`:
 ## Related discussions
 
 There was talk in 2012 to bring this feature to mocha itself (see [mocha#545]),
-which never came to a resolve.
+which eventually was merged around v2.2.5. It's been updated eversince to only
+affect mocha's internals. In contrast, mocha-clean cleans up all your
+`node_modules`'s stack frames.
 
 mocha-clean has been tested with mocha 1.21.x and will likely work for the 
 entire mocha 1.x series.
