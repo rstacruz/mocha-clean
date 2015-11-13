@@ -136,6 +136,7 @@ function isNodeInternal (line) {
     (~line.indexOf('(timers.js:')) ||
     (~line.indexOf('(node.js:')) ||
     (~line.indexOf('(module.js:')) ||
+    (~line.indexOf('(domain.js:')) ||
     (~line.indexOf('GeneratorFunctionPrototype.next (native)')) ||
     false;
 }
