@@ -134,13 +134,13 @@ affect mocha's internals. In contrast, mocha-clean cleans up all your
 mocha-clean has been tested with mocha 1.21.x and will likely work for the 
 entire mocha 1.x series.
 
-[mocha#545]: https://github.com/visionmedia/mocha/issues/545
+[mocha#545]: https://github.com/mochajs/mocha/issues/545
 
 <br>
 
 ## Thanks
 
-[mocha]: http://visionmedia.github.io/mocha
+[mocha]: http://mochajs.org/
 [brief format]: http://gcc.gnu.org/onlinedocs/gnat_ugn_unw/Output-and-Error-Message-Control.html
 
 **mocha-clean** © 2014+, Rico Sta. Cruz. Released under the [MIT] License.<br>
